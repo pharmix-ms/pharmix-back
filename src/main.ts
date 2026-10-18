@@ -1,20 +1,32 @@
-import { NestFactory } from '@nestjs/core';
-import { AppModule } from './app.module';
-import { ConfigService } from '@nestjs/config';
-import { ValidationPipe } from '@nestjs/common';
+import { NestFactory } from "@nestjs/core";
+import { DocumentBuilder, SwaggerModule } from "@nestjs/swagger";
+import { apiReference } from "@scalar/nestjs-api-reference";
+import { AppModule } from "./app.module.js";
+import { ObserveInstrument } from "./observe.js";
 
-async function bootstrap(): Promise<void> {
-  const app = await NestFactory.create(AppModule);
-  app.useGlobalPipes(
-    new ValidationPipe({
-      whitelist: true, // Remove campos que não estão no DTO
-      forbidNonWhitelisted: true, // Retorna erro se enviarem campos extras
-      transform: true, // Transforma os tipos automaticamente
+async function bootstrap() {
+  const app = await NestFactory.create(AppModule, {
+    instrument: ObserveInstrument,
+  });
+
+  const config = new DocumentBuilder()
+    .setTitle("Pharmix API")
+    .setDescription("Documentação da API do Pharmix")
+    .setVersion("1.0.0")
+    .build();
+
+  const document = SwaggerModule.createDocument(app, config);
+
+  app.use(
+    "/docs",
+    apiReference({
+      content: document,
+      theme: "default",
+      darkMode: true,
     }),
   );
-  const config = app.get(ConfigService);
-  const port = config.get<number>('PORT');
-  await app.listen(port ?? 3001);
-  console.log(`Server is running on port ${port}`);
+
+  await app.listen(process.env.PORT ?? 3000);
 }
+
 void bootstrap();
