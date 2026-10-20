@@ -1,13 +1,44 @@
-// This is your Prisma schema file,
+// This is your Prisma schema files,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 // Get a free hosted Postgres database in seconds: `npx create-db`
 
 generator client {
   provider = "prisma-client"
-  output   = "../generated/prisma"
+  output   = "../src/generated/prisma"
 }
 
 datasource db {
   provider = "postgresql"
+}
+
+model Medicamento {
+  id                String  @id @default(cuid())
+  nome              String
+  principioAtivo    String?
+  concentracao      String?
+  formaFarmaceutica String?
+  fabricante        String?
+
+  fontes MedicamentoFonte[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([nome])
+  @@index([principioAtivo])
+}
+
+model MedicamentoFonte {
+  id             String   @id @default(cuid())
+  fonte          String
+  codigoExterno  String
+  dadosOriginais Json?
+  importadoEm    DateTime @default(now())
+
+  medicamentoId String
+  medicamento   Medicamento @relation(fields: [medicamentoId], references: [id], onDelete: Cascade)
+
+  @@unique([fonte, codigoExterno])
+  @@index([medicamentoId])
 }
