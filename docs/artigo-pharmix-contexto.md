@@ -50,10 +50,24 @@ O histórico continua no dispositivo. Ter uma cópia local da base não elimina 
 dependência da fonte para cobertura e atualização do conteúdo farmacológico.
 Ver também `docs/importacao-detecta.md`.
 
+## Integração relatada no emulador
+
+Em 21 de outubro de 2026, o usuário executou o aplicativo em um emulador Android
+e relatou funcionamento inicial da consulta. Ao desligar o backend, observou
+erro de rede na confirmação da análise; ao religá-lo, relatou recuperação do
+funcionamento. Confirmou também o ajuste da mensagem de rede para português.
+A busca foi conectada à listagem do backend e a chave externa deixou de ser
+exigida no aplicativo.
+
+O protocolo, as evidências disponíveis e os cenários ainda sem confirmação estão
+em [Testes de integração no emulador Android](testes-integracao-emulador.md).
+
 ## O que ainda precisa ser demonstrado
 
-- Integração completa do aplicativo apontando para o backend próprio. As rotas
-  foram verificadas; isso não equivale a testar toda a jornada em um dispositivo.
+- Completar o registro da integração no aplicativo: conteúdo dos resultados,
+  ausência de registros, persistência e limpeza do histórico. O funcionamento
+  inicial e o teste de interrupção/restabelecimento do backend foram relatados
+  pelo usuário no emulador, sem capturas ou medições formais.
 - Novas medições de desempenho, com ambiente, cenários e método documentados.
 - Novos ensaios de usabilidade, se incluídos como resultado da versão atual.
 - Publicação no Neon: o banco utilizado nas verificações é PostgreSQL local.
