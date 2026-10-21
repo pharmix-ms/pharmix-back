@@ -3,6 +3,7 @@ import { ConfigModule } from '@nestjs/config';
 import { ObserveModule } from './observe.js';
 import { PrismaModule } from './database/prisma.module.js';
 import { MedicamentosModule } from './medicamentos/medicamentos.module.js';
+import { InteracoesModule } from './interacoes/interacoes.module.js';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { MedicamentosModule } from './medicamentos/medicamentos.module.js';
     }),
     PrismaModule,
     MedicamentosModule,
+    InteracoesModule,
   ],
   controllers: [],
   providers: [],
