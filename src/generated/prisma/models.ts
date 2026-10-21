@@ -9,5 +9,6 @@
  * 🟢 You can import this file directly.
  */
 export type * from './models/Medicamento.js'
+export type * from './models/Interacao.js'
 export type * from './models/MedicamentoFonte.js'
 export type * from './commonInputTypes.js'
