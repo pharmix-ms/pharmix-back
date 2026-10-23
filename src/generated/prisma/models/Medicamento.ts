@@ -31,6 +31,7 @@ export type MedicamentoMinAggregateOutputType = {
   concentracao: string | null
   formaFarmaceutica: string | null
   fabricante: string | null
+  indicacoes: string | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -42,6 +43,7 @@ export type MedicamentoMaxAggregateOutputType = {
   concentracao: string | null
   formaFarmaceutica: string | null
   fabricante: string | null
+  indicacoes: string | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -53,6 +55,7 @@ export type MedicamentoCountAggregateOutputType = {
   concentracao: number
   formaFarmaceutica: number
   fabricante: number
+  indicacoes: number
   createdAt: number
   updatedAt: number
   _all: number
@@ -66,6 +69,7 @@ export type MedicamentoMinAggregateInputType = {
   concentracao?: true
   formaFarmaceutica?: true
   fabricante?: true
+  indicacoes?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -77,6 +81,7 @@ export type MedicamentoMaxAggregateInputType = {
   concentracao?: true
   formaFarmaceutica?: true
   fabricante?: true
+  indicacoes?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -88,6 +93,7 @@ export type MedicamentoCountAggregateInputType = {
   concentracao?: true
   formaFarmaceutica?: true
   fabricante?: true
+  indicacoes?: true
   createdAt?: true
   updatedAt?: true
   _all?: true
@@ -172,6 +178,7 @@ export type MedicamentoGroupByOutputType = {
   concentracao: string | null
   formaFarmaceutica: string | null
   fabricante: string | null
+  indicacoes: string | null
   createdAt: Date
   updatedAt: Date
   _count: MedicamentoCountAggregateOutputType | null
@@ -204,9 +211,12 @@ export type MedicamentoWhereInput = {
   concentracao?: Prisma.StringNullableFilter<"Medicamento"> | string | null
   formaFarmaceutica?: Prisma.StringNullableFilter<"Medicamento"> | string | null
   fabricante?: Prisma.StringNullableFilter<"Medicamento"> | string | null
+  indicacoes?: Prisma.StringNullableFilter<"Medicamento"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Medicamento"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Medicamento"> | Date | string
   fontes?: Prisma.MedicamentoFonteListRelationFilter
+  interacoesComoPrimeiro?: Prisma.InteracaoListRelationFilter
+  interacoesComoSegundo?: Prisma.InteracaoListRelationFilter
 }
 
 export type MedicamentoOrderByWithRelationInput = {
@@ -216,9 +226,12 @@ export type MedicamentoOrderByWithRelationInput = {
   concentracao?: Prisma.SortOrderInput | Prisma.SortOrder
   formaFarmaceutica?: Prisma.SortOrderInput | Prisma.SortOrder
   fabricante?: Prisma.SortOrderInput | Prisma.SortOrder
+  indicacoes?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   fontes?: Prisma.MedicamentoFonteOrderByRelationAggregateInput
+  interacoesComoPrimeiro?: Prisma.InteracaoOrderByRelationAggregateInput
+  interacoesComoSegundo?: Prisma.InteracaoOrderByRelationAggregateInput
 }
 
 export type MedicamentoWhereUniqueInput = Prisma.AtLeast<{
@@ -231,9 +244,12 @@ export type MedicamentoWhereUniqueInput = Prisma.AtLeast<{
   concentracao?: Prisma.StringNullableFilter<"Medicamento"> | string | null
   formaFarmaceutica?: Prisma.StringNullableFilter<"Medicamento"> | string | null
   fabricante?: Prisma.StringNullableFilter<"Medicamento"> | string | null
+  indicacoes?: Prisma.StringNullableFilter<"Medicamento"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Medicamento"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Medicamento"> | Date | string
   fontes?: Prisma.MedicamentoFonteListRelationFilter
+  interacoesComoPrimeiro?: Prisma.InteracaoListRelationFilter
+  interacoesComoSegundo?: Prisma.InteracaoListRelationFilter
 }, "id">
 
 export type MedicamentoOrderByWithAggregationInput = {
@@ -243,6 +259,7 @@ export type MedicamentoOrderByWithAggregationInput = {
   concentracao?: Prisma.SortOrderInput | Prisma.SortOrder
   formaFarmaceutica?: Prisma.SortOrderInput | Prisma.SortOrder
   fabricante?: Prisma.SortOrderInput | Prisma.SortOrder
+  indicacoes?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.MedicamentoCountOrderByAggregateInput
@@ -260,6 +277,7 @@ export type MedicamentoScalarWhereWithAggregatesInput = {
   concentracao?: Prisma.StringNullableWithAggregatesFilter<"Medicamento"> | string | null
   formaFarmaceutica?: Prisma.StringNullableWithAggregatesFilter<"Medicamento"> | string | null
   fabricante?: Prisma.StringNullableWithAggregatesFilter<"Medicamento"> | string | null
+  indicacoes?: Prisma.StringNullableWithAggregatesFilter<"Medicamento"> | string | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Medicamento"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Medicamento"> | Date | string
 }
@@ -271,9 +289,12 @@ export type MedicamentoCreateInput = {
   concentracao?: string | null
   formaFarmaceutica?: string | null
   fabricante?: string | null
+  indicacoes?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   fontes?: Prisma.MedicamentoFonteCreateNestedManyWithoutMedicamentoInput
+  interacoesComoPrimeiro?: Prisma.InteracaoCreateNestedManyWithoutMedicamento1Input
+  interacoesComoSegundo?: Prisma.InteracaoCreateNestedManyWithoutMedicamento2Input
 }
 
 export type MedicamentoUncheckedCreateInput = {
@@ -283,9 +304,12 @@ export type MedicamentoUncheckedCreateInput = {
   concentracao?: string | null
   formaFarmaceutica?: string | null
   fabricante?: string | null
+  indicacoes?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   fontes?: Prisma.MedicamentoFonteUncheckedCreateNestedManyWithoutMedicamentoInput
+  interacoesComoPrimeiro?: Prisma.InteracaoUncheckedCreateNestedManyWithoutMedicamento1Input
+  interacoesComoSegundo?: Prisma.InteracaoUncheckedCreateNestedManyWithoutMedicamento2Input
 }
 
 export type MedicamentoUpdateInput = {
@@ -295,9 +319,12 @@ export type MedicamentoUpdateInput = {
   concentracao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   formaFarmaceutica?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   fabricante?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  indicacoes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   fontes?: Prisma.MedicamentoFonteUpdateManyWithoutMedicamentoNestedInput
+  interacoesComoPrimeiro?: Prisma.InteracaoUpdateManyWithoutMedicamento1NestedInput
+  interacoesComoSegundo?: Prisma.InteracaoUpdateManyWithoutMedicamento2NestedInput
 }
 
 export type MedicamentoUncheckedUpdateInput = {
@@ -307,9 +334,12 @@ export type MedicamentoUncheckedUpdateInput = {
   concentracao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   formaFarmaceutica?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   fabricante?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  indicacoes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   fontes?: Prisma.MedicamentoFonteUncheckedUpdateManyWithoutMedicamentoNestedInput
+  interacoesComoPrimeiro?: Prisma.InteracaoUncheckedUpdateManyWithoutMedicamento1NestedInput
+  interacoesComoSegundo?: Prisma.InteracaoUncheckedUpdateManyWithoutMedicamento2NestedInput
 }
 
 export type MedicamentoCreateManyInput = {
@@ -319,6 +349,7 @@ export type MedicamentoCreateManyInput = {
   concentracao?: string | null
   formaFarmaceutica?: string | null
   fabricante?: string | null
+  indicacoes?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -330,6 +361,7 @@ export type MedicamentoUpdateManyMutationInput = {
   concentracao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   formaFarmaceutica?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   fabricante?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  indicacoes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -341,6 +373,7 @@ export type MedicamentoUncheckedUpdateManyInput = {
   concentracao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   formaFarmaceutica?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   fabricante?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  indicacoes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -352,6 +385,7 @@ export type MedicamentoCountOrderByAggregateInput = {
   concentracao?: Prisma.SortOrder
   formaFarmaceutica?: Prisma.SortOrder
   fabricante?: Prisma.SortOrder
+  indicacoes?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -363,6 +397,7 @@ export type MedicamentoMaxOrderByAggregateInput = {
   concentracao?: Prisma.SortOrder
   formaFarmaceutica?: Prisma.SortOrder
   fabricante?: Prisma.SortOrder
+  indicacoes?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -374,6 +409,7 @@ export type MedicamentoMinOrderByAggregateInput = {
   concentracao?: Prisma.SortOrder
   formaFarmaceutica?: Prisma.SortOrder
   fabricante?: Prisma.SortOrder
+  indicacoes?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -395,6 +431,34 @@ export type DateTimeFieldUpdateOperationsInput = {
   set?: Date | string
 }
 
+export type MedicamentoCreateNestedOneWithoutInteracoesComoPrimeiroInput = {
+  create?: Prisma.XOR<Prisma.MedicamentoCreateWithoutInteracoesComoPrimeiroInput, Prisma.MedicamentoUncheckedCreateWithoutInteracoesComoPrimeiroInput>
+  connectOrCreate?: Prisma.MedicamentoCreateOrConnectWithoutInteracoesComoPrimeiroInput
+  connect?: Prisma.MedicamentoWhereUniqueInput
+}
+
+export type MedicamentoCreateNestedOneWithoutInteracoesComoSegundoInput = {
+  create?: Prisma.XOR<Prisma.MedicamentoCreateWithoutInteracoesComoSegundoInput, Prisma.MedicamentoUncheckedCreateWithoutInteracoesComoSegundoInput>
+  connectOrCreate?: Prisma.MedicamentoCreateOrConnectWithoutInteracoesComoSegundoInput
+  connect?: Prisma.MedicamentoWhereUniqueInput
+}
+
+export type MedicamentoUpdateOneRequiredWithoutInteracoesComoPrimeiroNestedInput = {
+  create?: Prisma.XOR<Prisma.MedicamentoCreateWithoutInteracoesComoPrimeiroInput, Prisma.MedicamentoUncheckedCreateWithoutInteracoesComoPrimeiroInput>
+  connectOrCreate?: Prisma.MedicamentoCreateOrConnectWithoutInteracoesComoPrimeiroInput
+  upsert?: Prisma.MedicamentoUpsertWithoutInteracoesComoPrimeiroInput
+  connect?: Prisma.MedicamentoWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.MedicamentoUpdateToOneWithWhereWithoutInteracoesComoPrimeiroInput, Prisma.MedicamentoUpdateWithoutInteracoesComoPrimeiroInput>, Prisma.MedicamentoUncheckedUpdateWithoutInteracoesComoPrimeiroInput>
+}
+
+export type MedicamentoUpdateOneRequiredWithoutInteracoesComoSegundoNestedInput = {
+  create?: Prisma.XOR<Prisma.MedicamentoCreateWithoutInteracoesComoSegundoInput, Prisma.MedicamentoUncheckedCreateWithoutInteracoesComoSegundoInput>
+  connectOrCreate?: Prisma.MedicamentoCreateOrConnectWithoutInteracoesComoSegundoInput
+  upsert?: Prisma.MedicamentoUpsertWithoutInteracoesComoSegundoInput
+  connect?: Prisma.MedicamentoWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.MedicamentoUpdateToOneWithWhereWithoutInteracoesComoSegundoInput, Prisma.MedicamentoUpdateWithoutInteracoesComoSegundoInput>, Prisma.MedicamentoUncheckedUpdateWithoutInteracoesComoSegundoInput>
+}
+
 export type MedicamentoCreateNestedOneWithoutFontesInput = {
   create?: Prisma.XOR<Prisma.MedicamentoCreateWithoutFontesInput, Prisma.MedicamentoUncheckedCreateWithoutFontesInput>
   connectOrCreate?: Prisma.MedicamentoCreateOrConnectWithoutFontesInput
@@ -409,6 +473,150 @@ export type MedicamentoUpdateOneRequiredWithoutFontesNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.MedicamentoUpdateToOneWithWhereWithoutFontesInput, Prisma.MedicamentoUpdateWithoutFontesInput>, Prisma.MedicamentoUncheckedUpdateWithoutFontesInput>
 }
 
+export type MedicamentoCreateWithoutInteracoesComoPrimeiroInput = {
+  id?: string
+  nome: string
+  principioAtivo?: string | null
+  concentracao?: string | null
+  formaFarmaceutica?: string | null
+  fabricante?: string | null
+  indicacoes?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  fontes?: Prisma.MedicamentoFonteCreateNestedManyWithoutMedicamentoInput
+  interacoesComoSegundo?: Prisma.InteracaoCreateNestedManyWithoutMedicamento2Input
+}
+
+export type MedicamentoUncheckedCreateWithoutInteracoesComoPrimeiroInput = {
+  id?: string
+  nome: string
+  principioAtivo?: string | null
+  concentracao?: string | null
+  formaFarmaceutica?: string | null
+  fabricante?: string | null
+  indicacoes?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  fontes?: Prisma.MedicamentoFonteUncheckedCreateNestedManyWithoutMedicamentoInput
+  interacoesComoSegundo?: Prisma.InteracaoUncheckedCreateNestedManyWithoutMedicamento2Input
+}
+
+export type MedicamentoCreateOrConnectWithoutInteracoesComoPrimeiroInput = {
+  where: Prisma.MedicamentoWhereUniqueInput
+  create: Prisma.XOR<Prisma.MedicamentoCreateWithoutInteracoesComoPrimeiroInput, Prisma.MedicamentoUncheckedCreateWithoutInteracoesComoPrimeiroInput>
+}
+
+export type MedicamentoCreateWithoutInteracoesComoSegundoInput = {
+  id?: string
+  nome: string
+  principioAtivo?: string | null
+  concentracao?: string | null
+  formaFarmaceutica?: string | null
+  fabricante?: string | null
+  indicacoes?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  fontes?: Prisma.MedicamentoFonteCreateNestedManyWithoutMedicamentoInput
+  interacoesComoPrimeiro?: Prisma.InteracaoCreateNestedManyWithoutMedicamento1Input
+}
+
+export type MedicamentoUncheckedCreateWithoutInteracoesComoSegundoInput = {
+  id?: string
+  nome: string
+  principioAtivo?: string | null
+  concentracao?: string | null
+  formaFarmaceutica?: string | null
+  fabricante?: string | null
+  indicacoes?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  fontes?: Prisma.MedicamentoFonteUncheckedCreateNestedManyWithoutMedicamentoInput
+  interacoesComoPrimeiro?: Prisma.InteracaoUncheckedCreateNestedManyWithoutMedicamento1Input
+}
+
+export type MedicamentoCreateOrConnectWithoutInteracoesComoSegundoInput = {
+  where: Prisma.MedicamentoWhereUniqueInput
+  create: Prisma.XOR<Prisma.MedicamentoCreateWithoutInteracoesComoSegundoInput, Prisma.MedicamentoUncheckedCreateWithoutInteracoesComoSegundoInput>
+}
+
+export type MedicamentoUpsertWithoutInteracoesComoPrimeiroInput = {
+  update: Prisma.XOR<Prisma.MedicamentoUpdateWithoutInteracoesComoPrimeiroInput, Prisma.MedicamentoUncheckedUpdateWithoutInteracoesComoPrimeiroInput>
+  create: Prisma.XOR<Prisma.MedicamentoCreateWithoutInteracoesComoPrimeiroInput, Prisma.MedicamentoUncheckedCreateWithoutInteracoesComoPrimeiroInput>
+  where?: Prisma.MedicamentoWhereInput
+}
+
+export type MedicamentoUpdateToOneWithWhereWithoutInteracoesComoPrimeiroInput = {
+  where?: Prisma.MedicamentoWhereInput
+  data: Prisma.XOR<Prisma.MedicamentoUpdateWithoutInteracoesComoPrimeiroInput, Prisma.MedicamentoUncheckedUpdateWithoutInteracoesComoPrimeiroInput>
+}
+
+export type MedicamentoUpdateWithoutInteracoesComoPrimeiroInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  nome?: Prisma.StringFieldUpdateOperationsInput | string
+  principioAtivo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  concentracao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  formaFarmaceutica?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fabricante?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  indicacoes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  fontes?: Prisma.MedicamentoFonteUpdateManyWithoutMedicamentoNestedInput
+  interacoesComoSegundo?: Prisma.InteracaoUpdateManyWithoutMedicamento2NestedInput
+}
+
+export type MedicamentoUncheckedUpdateWithoutInteracoesComoPrimeiroInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  nome?: Prisma.StringFieldUpdateOperationsInput | string
+  principioAtivo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  concentracao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  formaFarmaceutica?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fabricante?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  indicacoes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  fontes?: Prisma.MedicamentoFonteUncheckedUpdateManyWithoutMedicamentoNestedInput
+  interacoesComoSegundo?: Prisma.InteracaoUncheckedUpdateManyWithoutMedicamento2NestedInput
+}
+
+export type MedicamentoUpsertWithoutInteracoesComoSegundoInput = {
+  update: Prisma.XOR<Prisma.MedicamentoUpdateWithoutInteracoesComoSegundoInput, Prisma.MedicamentoUncheckedUpdateWithoutInteracoesComoSegundoInput>
+  create: Prisma.XOR<Prisma.MedicamentoCreateWithoutInteracoesComoSegundoInput, Prisma.MedicamentoUncheckedCreateWithoutInteracoesComoSegundoInput>
+  where?: Prisma.MedicamentoWhereInput
+}
+
+export type MedicamentoUpdateToOneWithWhereWithoutInteracoesComoSegundoInput = {
+  where?: Prisma.MedicamentoWhereInput
+  data: Prisma.XOR<Prisma.MedicamentoUpdateWithoutInteracoesComoSegundoInput, Prisma.MedicamentoUncheckedUpdateWithoutInteracoesComoSegundoInput>
+}
+
+export type MedicamentoUpdateWithoutInteracoesComoSegundoInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  nome?: Prisma.StringFieldUpdateOperationsInput | string
+  principioAtivo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  concentracao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  formaFarmaceutica?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fabricante?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  indicacoes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  fontes?: Prisma.MedicamentoFonteUpdateManyWithoutMedicamentoNestedInput
+  interacoesComoPrimeiro?: Prisma.InteracaoUpdateManyWithoutMedicamento1NestedInput
+}
+
+export type MedicamentoUncheckedUpdateWithoutInteracoesComoSegundoInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  nome?: Prisma.StringFieldUpdateOperationsInput | string
+  principioAtivo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  concentracao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  formaFarmaceutica?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fabricante?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  indicacoes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  fontes?: Prisma.MedicamentoFonteUncheckedUpdateManyWithoutMedicamentoNestedInput
+  interacoesComoPrimeiro?: Prisma.InteracaoUncheckedUpdateManyWithoutMedicamento1NestedInput
+}
+
 export type MedicamentoCreateWithoutFontesInput = {
   id?: string
   nome: string
@@ -416,8 +624,11 @@ export type MedicamentoCreateWithoutFontesInput = {
   concentracao?: string | null
   formaFarmaceutica?: string | null
   fabricante?: string | null
+  indicacoes?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  interacoesComoPrimeiro?: Prisma.InteracaoCreateNestedManyWithoutMedicamento1Input
+  interacoesComoSegundo?: Prisma.InteracaoCreateNestedManyWithoutMedicamento2Input
 }
 
 export type MedicamentoUncheckedCreateWithoutFontesInput = {
@@ -427,8 +638,11 @@ export type MedicamentoUncheckedCreateWithoutFontesInput = {
   concentracao?: string | null
   formaFarmaceutica?: string | null
   fabricante?: string | null
+  indicacoes?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  interacoesComoPrimeiro?: Prisma.InteracaoUncheckedCreateNestedManyWithoutMedicamento1Input
+  interacoesComoSegundo?: Prisma.InteracaoUncheckedCreateNestedManyWithoutMedicamento2Input
 }
 
 export type MedicamentoCreateOrConnectWithoutFontesInput = {
@@ -454,8 +668,11 @@ export type MedicamentoUpdateWithoutFontesInput = {
   concentracao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   formaFarmaceutica?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   fabricante?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  indicacoes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  interacoesComoPrimeiro?: Prisma.InteracaoUpdateManyWithoutMedicamento1NestedInput
+  interacoesComoSegundo?: Prisma.InteracaoUpdateManyWithoutMedicamento2NestedInput
 }
 
 export type MedicamentoUncheckedUpdateWithoutFontesInput = {
@@ -465,8 +682,11 @@ export type MedicamentoUncheckedUpdateWithoutFontesInput = {
   concentracao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   formaFarmaceutica?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   fabricante?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  indicacoes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  interacoesComoPrimeiro?: Prisma.InteracaoUncheckedUpdateManyWithoutMedicamento1NestedInput
+  interacoesComoSegundo?: Prisma.InteracaoUncheckedUpdateManyWithoutMedicamento2NestedInput
 }
 
 
@@ -476,10 +696,14 @@ export type MedicamentoUncheckedUpdateWithoutFontesInput = {
 
 export type MedicamentoCountOutputType = {
   fontes: number
+  interacoesComoPrimeiro: number
+  interacoesComoSegundo: number
 }
 
 export type MedicamentoCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   fontes?: boolean | MedicamentoCountOutputTypeCountFontesArgs
+  interacoesComoPrimeiro?: boolean | MedicamentoCountOutputTypeCountInteracoesComoPrimeiroArgs
+  interacoesComoSegundo?: boolean | MedicamentoCountOutputTypeCountInteracoesComoSegundoArgs
 }
 
 /**
@@ -499,6 +723,20 @@ export type MedicamentoCountOutputTypeCountFontesArgs<ExtArgs extends runtime.Ty
   where?: Prisma.MedicamentoFonteWhereInput
 }
 
+/**
+ * MedicamentoCountOutputType without action
+ */
+export type MedicamentoCountOutputTypeCountInteracoesComoPrimeiroArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.InteracaoWhereInput
+}
+
+/**
+ * MedicamentoCountOutputType without action
+ */
+export type MedicamentoCountOutputTypeCountInteracoesComoSegundoArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.InteracaoWhereInput
+}
+
 
 export type MedicamentoSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -507,9 +745,12 @@ export type MedicamentoSelect<ExtArgs extends runtime.Types.Extensions.InternalA
   concentracao?: boolean
   formaFarmaceutica?: boolean
   fabricante?: boolean
+  indicacoes?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   fontes?: boolean | Prisma.Medicamento$fontesArgs<ExtArgs>
+  interacoesComoPrimeiro?: boolean | Prisma.Medicamento$interacoesComoPrimeiroArgs<ExtArgs>
+  interacoesComoSegundo?: boolean | Prisma.Medicamento$interacoesComoSegundoArgs<ExtArgs>
   _count?: boolean | Prisma.MedicamentoCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["medicamento"]>
 
@@ -520,6 +761,7 @@ export type MedicamentoSelectCreateManyAndReturn<ExtArgs extends runtime.Types.E
   concentracao?: boolean
   formaFarmaceutica?: boolean
   fabricante?: boolean
+  indicacoes?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }, ExtArgs["result"]["medicamento"]>
@@ -531,6 +773,7 @@ export type MedicamentoSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.E
   concentracao?: boolean
   formaFarmaceutica?: boolean
   fabricante?: boolean
+  indicacoes?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }, ExtArgs["result"]["medicamento"]>
@@ -542,13 +785,16 @@ export type MedicamentoSelectScalar = {
   concentracao?: boolean
   formaFarmaceutica?: boolean
   fabricante?: boolean
+  indicacoes?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type MedicamentoOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "nome" | "principioAtivo" | "concentracao" | "formaFarmaceutica" | "fabricante" | "createdAt" | "updatedAt", ExtArgs["result"]["medicamento"]>
+export type MedicamentoOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "nome" | "principioAtivo" | "concentracao" | "formaFarmaceutica" | "fabricante" | "indicacoes" | "createdAt" | "updatedAt", ExtArgs["result"]["medicamento"]>
 export type MedicamentoInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   fontes?: boolean | Prisma.Medicamento$fontesArgs<ExtArgs>
+  interacoesComoPrimeiro?: boolean | Prisma.Medicamento$interacoesComoPrimeiroArgs<ExtArgs>
+  interacoesComoSegundo?: boolean | Prisma.Medicamento$interacoesComoSegundoArgs<ExtArgs>
   _count?: boolean | Prisma.MedicamentoCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type MedicamentoIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -558,6 +804,8 @@ export type $MedicamentoPayload<ExtArgs extends runtime.Types.Extensions.Interna
   name: "Medicamento"
   objects: {
     fontes: Prisma.$MedicamentoFontePayload<ExtArgs>[]
+    interacoesComoPrimeiro: Prisma.$InteracaoPayload<ExtArgs>[]
+    interacoesComoSegundo: Prisma.$InteracaoPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -566,6 +814,7 @@ export type $MedicamentoPayload<ExtArgs extends runtime.Types.Extensions.Interna
     concentracao: string | null
     formaFarmaceutica: string | null
     fabricante: string | null
+    indicacoes: string | null
     createdAt: Date
     updatedAt: Date
   }, ExtArgs["result"]["medicamento"]>
@@ -963,6 +1212,8 @@ readonly fields: MedicamentoFieldRefs;
 export interface Prisma__MedicamentoClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
   fontes<T extends Prisma.Medicamento$fontesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Medicamento$fontesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$MedicamentoFontePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  interacoesComoPrimeiro<T extends Prisma.Medicamento$interacoesComoPrimeiroArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Medicamento$interacoesComoPrimeiroArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$InteracaoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  interacoesComoSegundo<T extends Prisma.Medicamento$interacoesComoSegundoArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Medicamento$interacoesComoSegundoArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$InteracaoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -998,6 +1249,7 @@ export interface MedicamentoFieldRefs {
   readonly concentracao: Prisma.FieldRef<"Medicamento", 'String'>
   readonly formaFarmaceutica: Prisma.FieldRef<"Medicamento", 'String'>
   readonly fabricante: Prisma.FieldRef<"Medicamento", 'String'>
+  readonly indicacoes: Prisma.FieldRef<"Medicamento", 'String'>
   readonly createdAt: Prisma.FieldRef<"Medicamento", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"Medicamento", 'DateTime'>
 }
@@ -1414,6 +1666,54 @@ export type Medicamento$fontesArgs<ExtArgs extends runtime.Types.Extensions.Inte
   take?: number
   skip?: number
   distinct?: Prisma.MedicamentoFonteScalarFieldEnum | Prisma.MedicamentoFonteScalarFieldEnum[]
+}
+
+/**
+ * Medicamento.interacoesComoPrimeiro
+ */
+export type Medicamento$interacoesComoPrimeiroArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Interacao
+   */
+  select?: Prisma.InteracaoSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Interacao
+   */
+  omit?: Prisma.InteracaoOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.InteracaoInclude<ExtArgs> | null
+  where?: Prisma.InteracaoWhereInput
+  orderBy?: Prisma.InteracaoOrderByWithRelationInput | Prisma.InteracaoOrderByWithRelationInput[]
+  cursor?: Prisma.InteracaoWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.InteracaoScalarFieldEnum | Prisma.InteracaoScalarFieldEnum[]
+}
+
+/**
+ * Medicamento.interacoesComoSegundo
+ */
+export type Medicamento$interacoesComoSegundoArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Interacao
+   */
+  select?: Prisma.InteracaoSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Interacao
+   */
+  omit?: Prisma.InteracaoOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.InteracaoInclude<ExtArgs> | null
+  where?: Prisma.InteracaoWhereInput
+  orderBy?: Prisma.InteracaoOrderByWithRelationInput | Prisma.InteracaoOrderByWithRelationInput[]
+  cursor?: Prisma.InteracaoWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.InteracaoScalarFieldEnum | Prisma.InteracaoScalarFieldEnum[]
 }
 
 /**

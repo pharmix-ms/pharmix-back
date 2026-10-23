@@ -19,14 +19,38 @@ model Medicamento {
   concentracao      String?
   formaFarmaceutica String?
   fabricante        String?
+  indicacoes        String?
 
   fontes MedicamentoFonte[]
+  interacoesComoPrimeiro Interacao[] @relation("PrimeiroMedicamento")
+  interacoesComoSegundo  Interacao[] @relation("SegundoMedicamento")
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
   @@index([nome])
   @@index([principioAtivo])
+}
+
+model Interacao {
+  id                   String @id @default(cuid())
+  medicamento1Id       String
+  medicamento2Id       String
+  medicamento1         Medicamento @relation("PrimeiroMedicamento", fields: [medicamento1Id], references: [id], onDelete: Restrict)
+  medicamento2         Medicamento @relation("SegundoMedicamento", fields: [medicamento2Id], references: [id], onDelete: Restrict)
+  mecanismoEfeito      String
+  recomendacoes        String
+  acao                 String
+  fonte                String
+  codigoExterno        String
+  dadosOriginais       Json
+  importadoEm          DateTime @default(now())
+  createdAt            DateTime @default(now())
+  updatedAt            DateTime @updatedAt
+
+  @@unique([fonte, codigoExterno])
+  @@index([medicamento1Id, medicamento2Id])
+  @@index([medicamento2Id])
 }
 
 model MedicamentoFonte {

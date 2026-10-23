@@ -398,6 +398,7 @@ type FieldRefInputType<Model, FieldType> = Model extends never ? never : FieldRe
 
 export const ModelName = {
   Medicamento: 'Medicamento',
+  Interacao: 'Interacao',
   MedicamentoFonte: 'MedicamentoFonte'
 } as const
 
@@ -414,7 +415,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "medicamento" | "medicamentoFonte"
+    modelProps: "medicamento" | "interacao" | "medicamentoFonte"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -489,6 +490,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         count: {
           args: Prisma.MedicamentoCountArgs<ExtArgs>
           result: runtime.Types.Utils.Optional<Prisma.MedicamentoCountAggregateOutputType> | number
+        }
+      }
+    }
+    Interacao: {
+      payload: Prisma.$InteracaoPayload<ExtArgs>
+      fields: Prisma.InteracaoFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.InteracaoFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InteracaoPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.InteracaoFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InteracaoPayload>
+        }
+        findFirst: {
+          args: Prisma.InteracaoFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InteracaoPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.InteracaoFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InteracaoPayload>
+        }
+        findMany: {
+          args: Prisma.InteracaoFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InteracaoPayload>[]
+        }
+        create: {
+          args: Prisma.InteracaoCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InteracaoPayload>
+        }
+        createMany: {
+          args: Prisma.InteracaoCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.InteracaoCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InteracaoPayload>[]
+        }
+        delete: {
+          args: Prisma.InteracaoDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InteracaoPayload>
+        }
+        update: {
+          args: Prisma.InteracaoUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InteracaoPayload>
+        }
+        deleteMany: {
+          args: Prisma.InteracaoDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.InteracaoUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.InteracaoUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InteracaoPayload>[]
+        }
+        upsert: {
+          args: Prisma.InteracaoUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InteracaoPayload>
+        }
+        aggregate: {
+          args: Prisma.InteracaoAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateInteracao>
+        }
+        groupBy: {
+          args: Prisma.InteracaoGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.InteracaoGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.InteracaoCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.InteracaoCountAggregateOutputType> | number
         }
       }
     }
@@ -612,11 +687,30 @@ export const MedicamentoScalarFieldEnum = {
   concentracao: 'concentracao',
   formaFarmaceutica: 'formaFarmaceutica',
   fabricante: 'fabricante',
+  indicacoes: 'indicacoes',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
 
 export type MedicamentoScalarFieldEnum = (typeof MedicamentoScalarFieldEnum)[keyof typeof MedicamentoScalarFieldEnum]
+
+
+export const InteracaoScalarFieldEnum = {
+  id: 'id',
+  medicamento1Id: 'medicamento1Id',
+  medicamento2Id: 'medicamento2Id',
+  mecanismoEfeito: 'mecanismoEfeito',
+  recomendacoes: 'recomendacoes',
+  acao: 'acao',
+  fonte: 'fonte',
+  codigoExterno: 'codigoExterno',
+  dadosOriginais: 'dadosOriginais',
+  importadoEm: 'importadoEm',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type InteracaoScalarFieldEnum = (typeof InteracaoScalarFieldEnum)[keyof typeof InteracaoScalarFieldEnum]
 
 
 export const MedicamentoFonteScalarFieldEnum = {
@@ -637,6 +731,13 @@ export const SortOrder = {
 } as const
 
 export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
+
+
+export const JsonNullValueInput = {
+  JsonNull: JsonNull
+} as const
+
+export type JsonNullValueInput = (typeof JsonNullValueInput)[keyof typeof JsonNullValueInput]
 
 
 export const NullableJsonNullValueInput = {
@@ -885,6 +986,7 @@ export interface PrismaClientOptionsWithAdapter extends PrismaClientBaseOptions 
 export type PrismaClientOptions = PrismaClientOptionsWithAccelerateUrl | PrismaClientOptionsWithAdapter
 export type GlobalOmitConfig = {
   medicamento?: Prisma.MedicamentoOmit
+  interacao?: Prisma.InteracaoOmit
   medicamentoFonte?: Prisma.MedicamentoFonteOmit
 }
 

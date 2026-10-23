@@ -47,6 +47,11 @@ export { Prisma }
  */
 export type Medicamento = Prisma.MedicamentoModel
 /**
+ * Model Interacao
+ * 
+ */
+export type Interacao = Prisma.InteracaoModel
+/**
  * Model MedicamentoFonte
  * 
  */

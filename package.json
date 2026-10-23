@@ -7,6 +7,12 @@
   "license": "UNLICENSED",
   "type": "module",
   "scripts": {
+    "db:generate": "prisma generate --config prisma7.config.ts",
+    "db:migrate": "prisma migrate deploy --config prisma7.config.ts",
+    "data:fetch": "node scripts/detecta-fetch.mjs",
+    "data:validate": "node scripts/detecta-import.mjs",
+    "data:import": "npm run db:generate && npm run build && node scripts/detecta-import.mjs --apply",
+    "test:import": "node --test scripts/detecta-data.test.mjs",
     "build": "nest build",
     "deploy": "nest deploy",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",

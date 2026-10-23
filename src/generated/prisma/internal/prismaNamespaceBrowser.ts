@@ -52,6 +52,7 @@ export const AnyNull = runtime.AnyNull
 
 export const ModelName = {
   Medicamento: 'Medicamento',
+  Interacao: 'Interacao',
   MedicamentoFonte: 'MedicamentoFonte'
 } as const
 
@@ -78,11 +79,30 @@ export const MedicamentoScalarFieldEnum = {
   concentracao: 'concentracao',
   formaFarmaceutica: 'formaFarmaceutica',
   fabricante: 'fabricante',
+  indicacoes: 'indicacoes',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
 
 export type MedicamentoScalarFieldEnum = (typeof MedicamentoScalarFieldEnum)[keyof typeof MedicamentoScalarFieldEnum]
+
+
+export const InteracaoScalarFieldEnum = {
+  id: 'id',
+  medicamento1Id: 'medicamento1Id',
+  medicamento2Id: 'medicamento2Id',
+  mecanismoEfeito: 'mecanismoEfeito',
+  recomendacoes: 'recomendacoes',
+  acao: 'acao',
+  fonte: 'fonte',
+  codigoExterno: 'codigoExterno',
+  dadosOriginais: 'dadosOriginais',
+  importadoEm: 'importadoEm',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type InteracaoScalarFieldEnum = (typeof InteracaoScalarFieldEnum)[keyof typeof InteracaoScalarFieldEnum]
 
 
 export const MedicamentoFonteScalarFieldEnum = {
@@ -103,6 +123,13 @@ export const SortOrder = {
 } as const
 
 export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
+
+
+export const JsonNullValueInput = {
+  JsonNull: JsonNull
+} as const
+
+export type JsonNullValueInput = (typeof JsonNullValueInput)[keyof typeof JsonNullValueInput]
 
 
 export const NullableJsonNullValueInput = {
