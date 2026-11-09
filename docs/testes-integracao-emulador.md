@@ -98,3 +98,27 @@ Não calcular taxa de sucesso, latência média ou ganho de desempenho com esses
 relatos. Não apresentá-los como estudo de usabilidade, validação clínica ou
 comprovação de redução dos riscos da automedicação. Os ensaios com três
 participantes descritos no artigo anterior pertencem à versão anterior.
+
+## Verificação de 7 de novembro de 2026
+
+A versão de desenvolvimento foi executada no emulador Pixel 6a com Android 15
+(API 35), Metro e backend NestJS conectados ao PostgreSQL 18 local. Os testes
+da interface usaram dados de perfil fictícios e os dados anteriores do
+emulador foram restaurados ao final.
+
+| Fluxo | Resultado observado |
+| --- | --- |
+| AAS e Varfarina | Um registro retornado pelo PostgreSQL e tela de detalhes com mecanismo e recomendação. |
+| AAS e Acetaminofeno com perfil limpo | Tela sem registros para a seleção. |
+| Varfarina e espinafre | Cartão de interação com referência ao MedlinePlus. |
+| Paracetamol e bebida alcoólica | Cartão de interação com referência ao DailyMed. |
+| Omeprazol e água | Cartão de orientação de administração, com referência à apresentação descrita na fonte. |
+| Perfil salvo | Alertas para alergia informada a AAS, asma e AAS, gravidez e Varfarina, e doença hepática e Paracetamol. |
+| Limpeza do perfil | Consulta posterior com AAS e Varfarina sem os alertas de perfil da sessão de teste. |
+| Histórico | Reabertura de uma consulta, limpeza e persistência de nova consulta após encerrar e reiniciar o processo Android. |
+
+A verificação automatizada aprovou 6 testes da importação, 2 testes unitários
+e 12 testes HTTP do backend, além de 4 testes das regras do aplicativo. O
+catálogo consultado no PostgreSQL retornou 115 registros. A validação da
+captura confirmou 340 interações com identificadores distintos. A checagem de
+tipos e o lint do frontend também passaram.

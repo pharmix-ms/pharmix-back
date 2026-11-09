@@ -1,5 +1,21 @@
 # Base para o novo artigo do Pharmix
 
+## Escopo implementado para a entrega de novembro de 2026
+
+O aplicativo combina a consulta ao backend próprio com regras locais para
+espinafre, bebida alcoólica e água. O perfil opcional guarda alergias
+informadas, gravidez, asma e doença hepática no aparelho. A interface distingue
+interações, orientações de administração e alertas do perfil. A versão
+implementada usa um conjunto inicial de regras com referências específicas.
+
+O artigo de trabalho usa o título **Pharmix - Desenvolvimento de uma
+Plataforma Personalizada para Análise de Interações Medicamentosas**.
+A metodologia e o desenvolvimento descrevem a captura do Detecta Interações,
+a arquitetura, as regras complementares e o procedimento de avaliação técnica.
+Os resultados da verificação no Android estão no [registro de integração de
+7 de novembro](testes-integracao-emulador.md#verificação-de-7-de-novembro-de-2026).
+As seções seguintes preservam o contexto da etapa anterior do projeto.
+
 ## Referência anterior
 
 Documento fornecido pelo usuário: **Pharmix: Automedicação e o Perigo das
@@ -73,7 +89,7 @@ em [Testes de integração no emulador Android](testes-integracao-emulador.md).
 - Publicação no Neon: o banco utilizado nas verificações é PostgreSQL local.
 - Cobertura de nomes comerciais, múltiplos componentes, doses ou dados clínicos
   individuais. A existência de campos no schema ou telas não comprova análise.
-- IA, reconhecimento de embalagens e personalização: devem permanecer como
+- IA e reconhecimento de embalagens: devem permanecer como
   propostas até implementação e avaliação específicas.
 
 ## Pontos a corrigir ou conferir na nova redação
@@ -113,3 +129,11 @@ em [Testes de integração no emulador Android](testes-integracao-emulador.md).
 Redigir resumo e abstract após consolidar objetivo, método e resultados. Novos
 recursos e novas verificações devem atualizar este registro antes da redação
 final, mantendo separados implementação, avaliação técnica e avaliação clínica.
+
+## Revisão ampliada de 7 de novembro de 2026
+
+A personalização inicial já acrescenta alertas locais por gravidez, asma, doença hepática e alergia informada; não recalcula gravidade, dose ou risco individual. As pendências de emulador da etapa anterior devem ser lidas junto ao registro posterior de 7 de novembro.
+
+- [Metodologia e desenvolvimento revisados](artigo-metodologia-desenvolvimento.md)
+- [Roteiro de interações e perfil](roteiro-interacoes-perfil.md)
+- [Achados e verificações da revisão](revisao-escopo-2026-11-07.md)
