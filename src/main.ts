@@ -9,6 +9,14 @@ async function bootstrap() {
     instrument: ObserveInstrument,
   });
 
+  app.enableCors({
+    origin: [
+      'http://localhost:8081',               // Expo web em desenvolvimento
+      'https://SEU-FRONT.onrender.com',      // endereço onde você publicar a versão web
+    ],
+    methods: ['GET', 'HEAD', 'OPTIONS'],
+  });
+
   const config = new DocumentBuilder()
     .setTitle("Pharmix API")
     .setDescription("Documentação da API do Pharmix")
